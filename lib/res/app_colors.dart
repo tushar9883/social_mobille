@@ -12,4 +12,7 @@ abstract class AppColors {
   static const Color bgColor = Color(0xffFCF3F4);
   static const Color text1Color = Color(0xffC7ABBA);
   static const Color hintColor = Color(0xffD9C3CE);
+  static const Color gradiantColor = Color(0xffFFF0F2);
+  static const Color gradiantColor2 = Color(0xffE4F4FF);
+  static const Color gradiantColor3 = Color(0xffDFF1FF);
 }

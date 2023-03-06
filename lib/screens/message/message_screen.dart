@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ofc_port/base/base_view_view_model.dart';
 import 'package:ofc_port/res/app_colors.dart';
 import 'package:ofc_port/res/style.dart';
+import 'package:ofc_port/router/router_name.dart';
 import 'package:ofc_port/screens/message/message_binding.dart';
 import 'package:ofc_port/screens/widget/custome_textfield.dart';
 
@@ -12,6 +13,13 @@ class MessageScreen extends BaseView<MessageController> {
   @override
   Widget vBuilder(BuildContext context) {
     return Scaffold(
+      floatingActionButton: SizedBox(
+        height: 67.w,
+        width: 67.w,
+        child: Image.asset(
+          "assets/image/edit_ic.png",
+        ),
+      ),
       body: SafeArea(
         child: Container(
           decoration: const BoxDecoration(
@@ -121,34 +129,45 @@ class MessageScreen extends BaseView<MessageController> {
                         itemBuilder: (context, index) {
                           return Padding(
                             padding: EdgeInsets.only(bottom: 32.h),
-                            child: Row(
-                              children: [
-                                Image.asset(
+                            child: GestureDetector(
+                              onTap: () {
+                                Get.toNamed(RouterName.chat, arguments: [
                                   controller.messageList[index]["image"],
-                                  width: 56.w,
-                                  height: 56.w,
-                                ),
-                                SizedBox(
-                                  width: 24.w,
-                                ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(controller.messageList[index]["name"],
+                                  controller.messageList[index]["name"],
+                                ]);
+                              },
+                              child: Row(
+                                children: [
+                                  Image.asset(
+                                    controller.messageList[index]["image"],
+                                    width: 56.w,
+                                    height: 56.w,
+                                  ),
+                                  SizedBox(
+                                    width: 24.w,
+                                  ),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        controller.messageList[index]["name"],
                                         style: circeBold.copyWith(
                                           fontSize: 18.sp,
                                           color: AppColors.khakhiColor,
-                                        )),
-                                    Text(
-                                      controller.messageList[index]["des"],
-                                      style: circeRegular.copyWith(
-                                        fontSize: 18.sp,
-                                        color: AppColors.khakhiColor,
+                                        ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ],
+                                      Text(
+                                        controller.messageList[index]["des"],
+                                        style: circeRegular.copyWith(
+                                          fontSize: 18.sp,
+                                          color: AppColors.khakhiColor,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
                           );
                         },
