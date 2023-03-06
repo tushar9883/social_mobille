@@ -1,0 +1,26 @@
+name: social_mobile
+
+on:
+  push:
+    branches:
+      - master
+      - test
+
+jobs:
+  social_mobile:
+    name: social_mobile
+    runs-on: macos-latest
+    steps:
+      - users: actions/checkout@v1
+      - users: actions/setup-java@v1
+        with:
+          java-version: '12.x'
+      - users: subosito/flutter-action@v1
+        with:
+          channel: 'stable'
+      - name: Get Branch Name
+        id: branch
+        run: echo "::set-output name=branch::${GITHUB_REF##*/}"
+      - name: Get Today Date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
