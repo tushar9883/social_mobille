@@ -21,4 +21,7 @@ class HomeController extends BaseController{
   profile() {
     Get.toNamed(RouterName.profile);
   }
+  message(){
+    Get.toNamed(RouterName.message);
+  }
 }

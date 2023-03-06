@@ -43,8 +43,8 @@ class ProfileScreen extends BaseView<ProfileController> {
                       },
                       child: Image.asset(
                         "assets/image/back.png",
-                        height: 24.w,
-                        width: 24.w,
+                        height: 20.w,
+                        width: 20.w,
                       ),
                     ),
                     Image.asset(

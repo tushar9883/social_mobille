@@ -2,6 +2,8 @@ import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:ofc_port/router/router_name.dart';
 import 'package:ofc_port/screens/home/home_binding.dart';
 import 'package:ofc_port/screens/home/home_screen.dart';
+import 'package:ofc_port/screens/message/message_binding.dart';
+import 'package:ofc_port/screens/message/message_screen.dart';
 import 'package:ofc_port/screens/profile/profile_binding.dart';
 import 'package:ofc_port/screens/profile/profile_screen.dart';
 import 'package:ofc_port/screens/splash/splash_binding.dart';
@@ -24,6 +26,11 @@ class Pages {
         name: RouterName.profile,
         page: () => const ProfileScreen(),
         binding: ProfileBinding(),
+      ),
+      GetPage(
+        name: RouterName.message,
+        page: () => const MessageScreen(),
+        binding: MessageBinding(),
       ),
 
       // GetPage(

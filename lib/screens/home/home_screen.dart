@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ofc_port/base/base_view_view_model.dart';
 import 'package:ofc_port/res/app_colors.dart';
 import 'package:ofc_port/res/style.dart';
@@ -43,17 +42,22 @@ class HomeScreen extends BaseView<HomeController> {
                       ),
                     ],
                   ),
-                  Container(
-                    height: 46.w,
-                    width: 46.w,
-                    decoration: BoxDecoration(
-                      color: AppColors.whiteColor,
-                      borderRadius: BorderRadius.circular(40.r),
-                    ),
-                    child: Icon(
-                      Icons.search_rounded,
-                      size: 24.r,
-                      color: AppColors.litesColor,
+                  GestureDetector(
+                    onTap: (){
+                      controller.message();
+                    },
+                    child: Container(
+                      height: 46.w,
+                      width: 46.w,
+                      decoration: BoxDecoration(
+                        color: AppColors.whiteColor,
+                        borderRadius: BorderRadius.circular(40.r),
+                      ),
+                      child: Icon(
+                        Icons.search_rounded,
+                        size: 24.r,
+                        color: AppColors.litesColor,
+                      ),
                     ),
                   ),
                 ],
