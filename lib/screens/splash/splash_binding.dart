@@ -19,6 +19,6 @@ class SplashController extends BaseController {
   ];
 
   getStart() {
-    Get.toNamed(RouterName.home);
+    Get.offNamed(RouterName.home);
   }
 }
