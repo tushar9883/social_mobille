@@ -43,7 +43,7 @@ class HomeScreen extends BaseView<HomeController> {
                     ],
                   ),
                   GestureDetector(
-                    onTap: (){
+                    onTap: () {
                       controller.message();
                     },
                     child: Container(
@@ -80,33 +80,75 @@ class HomeScreen extends BaseView<HomeController> {
                       width: double.infinity,
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
-                        itemCount: controller.storyList.length,
+                        // itemCount: 1,
+                        itemCount: controller.storyList.length +1,
                         shrinkWrap: true,
                         itemBuilder: (context, index) {
-                          return Padding(
-                            padding: EdgeInsets.only(right: 14.w),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(100.r),
-                              child: Container(
-                                width: 80.w,
+                          // return Container(
+                          //   width: 80.w,
+                          //   height: 80.w,
+                          //   decoration: BoxDecoration(
+                          //     shape: BoxShape.circle,
+                          //     boxShadow: [
+                          //       BoxShadow(
+                          //         color: AppColors.pinkLightColor,
+                          //         offset: const Offset(
+                          //           0.0,
+                          //           10.0,
+                          //         ), //Offset
+                          //         blurRadius: 20.r,
+                          //       ), //BoxShadow
+                          //     ],
+                          //   ),
+                          //   child: Image.asset(
+                          //     "assets/image/story.png",
+                          //     height: 70.w,
+                          //     width: 70.w,
+                          //     // fit: BoxFit.contain,
+                          //   ),
+                          // );
+                          // child: Image.asset(
+                          //   controller.storyList[index],
+                          //   width: 80.w,
+                          //   height: 80.w,
+                          // ),
+
+                          if (index == 0) {
+                            return  Container(
+                              width: 80.w,
+                              height: 80.w,
+                              // decoration: BoxDecoration(
+                              //   shape: BoxShape.circle,
+                              //   boxShadow: [
+                              //     BoxShadow(
+                              //       color: AppColors.pinkLightColor,
+                              //       offset: const Offset(
+                              //         0.0,
+                              //         60.0,
+                              //       ), //Offset
+                              //       blurRadius: 20.r,
+                              //     ), //BoxShadow
+                              //   ],
+                              // ),
+                              child: Image.asset(
+                                "assets/image/story.png",
                                 height: 80.w,
-                                decoration: BoxDecoration(
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: AppColors.pinkLightColor,
-                                      blurRadius: 80.r,
-                                      offset: const Offset(0, 20),
-                                    ),
-                                  ],
-                                ),
-                                child: Image.asset(
-                                  controller.storyList[index],
                                 width: 80.w,
-                                height: 80.w,
-                                ),
+                                // fit: BoxFit.contain,
                               ),
-                            ),
-                          );
+                            );
+                          }else{
+                            print("1");
+                            var newIndex = index - 1;
+                           return Padding(
+                             padding:  EdgeInsets.symmetric(horizontal: 14.w),
+                             child: Image.asset(
+                                "${controller.storyList[newIndex]}",
+                                width: 80.w,
+                                height: 80.w,
+                              ),
+                           );
+                          }
                         },
                       ),
                     ),
@@ -121,20 +163,23 @@ class HomeScreen extends BaseView<HomeController> {
                         return Padding(
                           padding: EdgeInsets.only(bottom: 20.h),
                           child: GestureDetector(
-                            onTap: (){
+                            onTap: () {
                               controller.profile();
                             },
                             child: Container(
-                              width: double.infinity,
+                              // width: double.infinity,
                               height: 300.h,
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
                                 boxShadow: [
                                   BoxShadow(
                                     color: AppColors.pinkLightColor,
-                                    blurRadius: 80.r,
-                                    offset: const Offset(0, 10),
-                                  ),
+                                    offset: const Offset(
+                                      0.0,
+                                      5.0,
+                                    ), //Offset
+                                    blurRadius: 50.r,
+                                  ), //BoxShadow
                                 ],
                               ),
                               child: Image.asset(

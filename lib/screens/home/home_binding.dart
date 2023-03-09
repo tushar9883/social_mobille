@@ -9,7 +9,6 @@ class HomeBinding implements Bindings {
 }
 class HomeController extends BaseController{
   List storyList = [
-    'assets/image/story.png',
     'assets/image/item1.png',
     'assets/image/item2.png',
     'assets/image/item3.png',

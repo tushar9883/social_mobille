@@ -114,6 +114,7 @@ class ProfileScreen extends BaseView<ProfileController> {
                             Image.asset(
                               "assets/image/shape_profile.png",
                               fit: BoxFit.cover,
+                              width: double.infinity,
                             ),
                             Align(
                               alignment: Alignment.topCenter,
